@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Button Animations */
+@layer components {
+  /* Primary Action Buttons (e.g., Start Practice, Sign In) */
+  .btn-primary {
+    @apply relative overflow-hidden transition-all duration-300 
+           active:scale-95 hover:shadow-lg
+           before:absolute before:inset-0 
+           before:bg-white/20 before:translate-x-[-100%]
+           hover:before:translate-x-[100%] 
+           before:transition-transform before:duration-500
+           disabled:before:transform-none disabled:hover:shadow-none
+           disabled:active:scale-100;
+  }
+
+  /* Secondary Action Buttons (e.g., Cancel, Close) */
+  .btn-secondary {
+    @apply transition-all duration-200
+           hover:bg-opacity-90
+           active:scale-95
+           hover:shadow-md
+           disabled:hover:bg-opacity-100
+           disabled:active:scale-100;
+  }
+
+  /* Icon Buttons (e.g., Menu, Settings) */
+  .btn-icon {
+    @apply transition-transform duration-200
+           hover:scale-110 active:scale-90
+           hover:rotate-[8deg]
+           disabled:hover:scale-100
+           disabled:hover:rotate-0;
+  }
+
+  /* Delete/Danger Buttons */
+  .btn-danger {
+    @apply relative overflow-hidden transition-all duration-200
+           hover:bg-red-700 active:scale-95
+           before:absolute before:inset-0
+           before:bg-red-500/20 before:scale-x-0
+           hover:before:scale-x-100
+           before:transition-transform before:duration-300
+           disabled:before:scale-x-0
+           disabled:hover:bg-red-600;
+  }
+
+  /* Form Submit Buttons */
+  .btn-submit {
+    @apply relative overflow-hidden transition-all duration-300
+           active:scale-95
+           before:absolute before:inset-0
+           before:bg-gradient-to-r before:from-indigo-500/0 
+           before:via-indigo-500/20 before:to-indigo-500/0
+           before:translate-x-[-100%]
+           hover:before:translate-x-[100%]
+           before:transition-transform before:duration-1000
+           disabled:before:translate-x-[-100%];
+  }
+
+  /* Navigation Buttons */
+  .btn-nav {
+    @apply transition-all duration-200
+           hover:translate-x-1
+           active:translate-x-0
+           disabled:translate-x-0;
+  }
+
+  /* Loading State Animation */
+  .btn-loading {
+    @apply relative overflow-hidden
+           after:absolute after:inset-0
+           after:bg-gradient-to-r after:from-transparent 
+           after:via-white/20 after:to-transparent
+           after:translate-x-[-100%]
+           after:animate-shimmer;
+  }
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
